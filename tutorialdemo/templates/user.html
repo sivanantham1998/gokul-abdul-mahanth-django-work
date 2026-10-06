@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% block content %}
+<h2>
+    {{ name }}
+</h2>
+
+{% if role == 'admin' %}
+<h1>
+    Admin access
+</h1>
+{% else %}
+<h1>
+    user block
+</h1>
+{% endif %}
+<ul>
+    {% for i in language %}
+    <li>{{ i }}</li>
+    {% endfor %}
+</ul>
+
+<button onclick="a()">
+    Click
+</button>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="title">
+    <button type="submit">save</button>
+</form>
+{% endblock %}
